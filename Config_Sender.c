@@ -5,6 +5,6 @@ const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS]
 };
 
 char BatteryParametersJSONString[MAX_BATTERY_PARAMETERS][50] =
-{"Temperature : ","ChargeRate : "};
+{"Temperature : ","ChargeRate : \n"};
 
 
