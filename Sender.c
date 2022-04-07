@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "Config_Sender.h"
+#include "Sender.h"
 
-void Interpret()
+void ReadAndSendBatteryParameters(void)
 {
   int loopIndex = 0;
   float loadSensorOutput;
