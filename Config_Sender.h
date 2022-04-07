@@ -1,5 +1,7 @@
 #define MAX_BATTERY_PARAMETERS 2
 #define INVALID_TEMPERATURE 65535
+#define MIN_TEMP_LIMIT -10
+#define MAX_TEMP_LIMIT  50
 #define TEMPERATURE_OFFSET 0.75
 
 typedef struct {
