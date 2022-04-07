@@ -13,7 +13,7 @@
 typedef struct {
    float (*ReadSensorFunc_fp)(void);  
    float (*ProcessSensorValue_fp)(float);
-   void (*PrintInConsole_fp)(int,float);
+   int (*PrintInConsole_fp)(int,float);
 } tst_ReadBatteryParameters;
 
 extern const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS];
