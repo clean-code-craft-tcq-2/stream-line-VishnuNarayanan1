@@ -47,8 +47,8 @@ TEST_CASE("Temperature out of the range - Expected processed temperature is equa
 	int processedTemperatureValue;
 	float sensorTemperatureValue = -10.1;
 	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
-	REQUIRE(processedTemperatureValue == INVALID_TEMPERTURE);
+	REQUIRE(processedTemperatureValue == INVALID_TEMPERATURE );
 	sensorTemperatureValue = 50.1;
 	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
-	REQUIRE(processedTemperatureValue == INVALID_TEMPERTURE);
+	REQUIRE(processedTemperatureValue == INVALID_TEMPERATURE );
 }
