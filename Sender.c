@@ -10,7 +10,7 @@ void Interpret()
     {
        sensorValue = (BatteryParameters_st + loopIndex)->SensorReadFunc_fp();
        processedSensorValue = (BatteryParameters_st + loopIndex)->ProcessSensorValue_fp(sensorValue);
-       (BatteryParameters_st + loopIndex)->PrintProcessedSensorValue_fp(processedSensorValue);     
+       (BatteryParameters_st + loopIndex)->PrintInConsole_fp(loopIndex, processedSensorValue);     
     }
   }
 }
@@ -41,4 +41,7 @@ float ProcessVoltage (float voltageValue)
     return INVALID_VOLTAGE;
 }
 
-PrintInJSONFormat
+void PrintInJSONFormat(int batteryParameter, float processedSensorValue)
+{
+   printf("%x %.1f", BatteryParametersJSONString[batteryParameter] , processedSensorValue);
+}
