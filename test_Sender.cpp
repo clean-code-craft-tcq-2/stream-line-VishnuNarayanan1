@@ -21,12 +21,15 @@ float SimulatedVoltageValue [DATA_STREAM_SIZE] =
  1.0,9.0,9.1,9.7,10.2,15.1,12.2,12.0,10,5};
 
 
-TEST_CASE("Check battery parameters") {
-	int loop;
-for(loop = 0; loop < DATA_STREAM_SIZE; loop++)
+TEST_CASE("Check battery parameters") 
 {
-	TemperatureValue = SimulatedTemperatureValue[loop];
-	VoltageValue = SimulatedVoltageValue[loop];
-	ReadAndSendBatteryParameters();
-}
+	int sensorValuesIndex;
+	int functionExecutionStatus = 0;
+	for(sensorValuesIndex = 0; sensorValuesIndex < DATA_STREAM_SIZE; sensorValuesIndex++)
+	{
+		TemperatureValue = SimulatedTemperatureValue[sensorValuesIndex];
+		VoltageValue = SimulatedVoltageValue[sensorValuesIndex];
+		functionExecutionStatus = ReadAndSendBatteryParameters();
+		REQUIRED(functionExecutionStatus == 1);
+	}
 }
