@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include "Config_Sender.h"
+#include "Sender.h"
 
 const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS] =
 {
