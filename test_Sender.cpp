@@ -21,10 +21,12 @@ float SimulatedVoltageValue [DATA_STREAM_SIZE] =
  1.0,9.0,9.1,9.7,10.2,15.1,12.2,12.0,10,5};
 
 
-TEST_CASE("InferBreach -Temperature value passed is less than lower limit") {
-  BatteryParam_st BatteryLimits;
-  BatteryLimits.lowerLimitTemp = 20;
-  BatteryLimits.higherLimitTemp = 50;
-  double value = 15;
-  REQUIRE(InferBreach(value, BatteryLimits) == TOO_LOW);
+TEST_CASE("Check battery parameters") {
+	int loop;
+for(loop = 0; loop < DATA_STREAM_SIZE; loop++)
+{
+	TemperatureValue = SimulatedTemperatureValue[loop]
+	VoltageValue = SimulatedVoltageValue[loop]
+	ReadAndSendBatteryParameters();
+}
 }
