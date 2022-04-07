@@ -21,7 +21,7 @@ float SimulatedVoltageValue [DATA_STREAM_SIZE] =
  1.0,9.0,9.1,9.7,10.2,15.1,12.2,12.0,10,5};
 
 
-TEST_CASE("Check battery parameters") 
+TEST_CASE("Check battery parameters read , process and print cycle") 
 {
 	int sensorValuesIndex;
 	int functionExecutionStatus = 0;
@@ -32,4 +32,23 @@ TEST_CASE("Check battery parameters")
 		functionExecutionStatus = ReadAndSendBatteryParameters();
 		REQUIRE(functionExecutionStatus == 1);
 	}
+}
+
+TEST_CASE("Temperature within the range - Expected processed temperature is equal to sensed temperature + offset") 
+{
+	int processedTemperatureValue;
+	float sensorTemperatureValue = 25.5;
+	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
+	REQUIRE(processedTemperatureValue == (sensorTemperatureValue + TEMPERATURE_OFFSET ));
+}
+
+TEST_CASE("Temperature out of the range - Expected processed temperature is equal to INVALID_TEMPERTURE") 
+{
+	int processedTemperatureValue;
+	float sensorTemperatureValue = -10.1;
+	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
+	REQUIRE(processedTemperatureValue == INVALID_TEMPERTURE);
+	sensorTemperatureValue = 50.1;
+	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
+	REQUIRE(processedTemperatureValue == INVALID_TEMPERTURE);
 }
