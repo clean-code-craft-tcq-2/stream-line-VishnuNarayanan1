@@ -66,8 +66,8 @@ TEST_CASE("Voltage out of the range - Expected processed Voltage is equal to INV
 	float processedVoltageValue;
 	float sensorVoltageValue = 2.4;
 	processedVoltageValue = ProcessVoltage(sensorVoltageValue);
-	REQUIRE(processedTemperatureValue == INVALID_VOLTAGE );
+	REQUIRE(processedVoltageValue == INVALID_VOLTAGE );
 	sensorVoltageValue = 12.1;
 	processedVoltageValue = ProcessVoltage(sensorVoltageValue);
-	REQUIRE(processedTemperatureValue == INVALID_VOLTAGE );
+	REQUIRE(processedVoltageValue == INVALID_VOLTAGE );
 }
