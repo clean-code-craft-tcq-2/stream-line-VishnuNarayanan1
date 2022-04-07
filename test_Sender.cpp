@@ -30,6 +30,6 @@ TEST_CASE("Check battery parameters")
 		TemperatureValue = SimulatedTemperatureValue[sensorValuesIndex];
 		VoltageValue = SimulatedVoltageValue[sensorValuesIndex];
 		functionExecutionStatus = ReadAndSendBatteryParameters();
-		REQUIRED(functionExecutionStatus == 1);
+		REQUIRE(functionExecutionStatus == 1);
 	}
 }
