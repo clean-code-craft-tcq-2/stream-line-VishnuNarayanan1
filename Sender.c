@@ -5,7 +5,7 @@
 void ReadAndSendBatteryParameters(void)
 {
   int batteryParameterIndex = 0;
-  float sensorValue,processedSesnorValue;
+  float sensorValue,processedSensorValue;
   for(batteryParameterIndex = 0; batteryParameterIndex < MAX_BATTERY_PARAMETERS; batteryParameterIndex++)
   {
     if((ReadBatteryParameters_st + batteryParameterIndex)->SensorReadFunc_fp != NULL)
