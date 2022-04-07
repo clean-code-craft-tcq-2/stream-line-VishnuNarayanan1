@@ -11,4 +11,8 @@ const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS]
 char BatteryParametersJSONString[MAX_BATTERY_PARAMETERS][50] =
 {"Temperature : ","Voltage : \n"};
 
+// To simulate temperature and voltage value as read from the sensor
+float TemperatureValue;
+float VoltageValue;
+
 
