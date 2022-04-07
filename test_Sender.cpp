@@ -34,7 +34,7 @@ TEST_CASE("Check battery parameters read , process and print cycle")
 	}
 }
 
-TEST_CASE("Temperature within the range - Expected processed temperature is equal to sensed temperature + offset") 
+TEST_CASE("Temperature within the permissibl range - Expected processed temperature is equal to sensed temperature + offset") 
 {
 	float processedTemperatureValue;
 	float sensorTemperatureValue = 25.5;
@@ -51,4 +51,23 @@ TEST_CASE("Temperature out of the range - Expected processed temperature is equa
 	sensorTemperatureValue = 50.1;
 	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
 	REQUIRE(processedTemperatureValue == INVALID_TEMPERATURE );
+}
+
+TEST_CASE("Voltage within the permissible range - Expected processed voltage value is equal to sensed voltage") 
+{
+	float processedVoltageValue;
+	float sensorVoltageValue = 10;
+	processedVoltageValue = ProcessVoltage (sensorVoltageValue);
+	REQUIRE(processedVoltageValue == sensorVoltageValue);
+}
+
+TEST_CASE("Voltage out of the range - Expected processed Voltage is equal to INVALID_VOLTAGE") 
+{
+	float processedVoltageValue;
+	float sensorVoltageValue = 2.4;
+	processedVoltageValue = ProcessVoltage(sensorVoltageValue);
+	REQUIRE(processedTemperatureValue == INVALID_VOLTAGE );
+	sensorVoltageValue = 12.1;
+	processedVoltageValue = ProcessVoltage(sensorVoltageValue);
+	REQUIRE(processedTemperatureValue == INVALID_VOLTAGE );
 }
