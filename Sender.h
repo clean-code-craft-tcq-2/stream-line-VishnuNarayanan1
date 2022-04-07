@@ -3,4 +3,4 @@ float ReadTemperatureFromSensor(void);
 float ReadVoltage(void);
 float ProcessTemperatureValue (float sensorValue);
 float ProcessVoltage (float voltageValue);
-void PrintInJSONFormat(int batteryParameter, float processedSensorValue);
+int PrintInJSONFormat(int batteryParameter, float processedSensorValue);
