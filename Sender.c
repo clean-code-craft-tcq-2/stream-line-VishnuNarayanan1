@@ -45,5 +45,5 @@ float ProcessVoltage (float voltageValue)
 
 void PrintInJSONFormat(int batteryParameter, float processedSensorValue)
 {
-   printf("Battery Parameters\n\t%s %.1f\n", BatteryParametersJSONString[batteryParameter] , processedSensorValue);
+   printf("%s %.1f\n", BatteryParametersJSONString[batteryParameter] , processedSensorValue);
 }
