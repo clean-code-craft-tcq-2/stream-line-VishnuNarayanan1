@@ -10,7 +10,7 @@ void ReadAndSendBatteryParameters(void)
   {
     if((ReadBatteryParameters_st + batteryParameterIndex)->SensorReadFunc_fp != NULL)
     {
-       sensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->SensorReadFunc_fp();
+       sensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->ReadSensorFunc_fp();
        processedSensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->ProcessSensorValue_fp(sensorValue);
        (ReadBatteryParameters_st + batteryParameterIndex)->PrintInConsole_fp(batteryParameterIndex, processedSensorValue);     
     }
