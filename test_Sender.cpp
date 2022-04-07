@@ -25,8 +25,8 @@ TEST_CASE("Check battery parameters") {
 	int loop;
 for(loop = 0; loop < DATA_STREAM_SIZE; loop++)
 {
-	TemperatureValue = SimulatedTemperatureValue[loop]
-	VoltageValue = SimulatedVoltageValue[loop]
+	TemperatureValue = SimulatedTemperatureValue[loop];
+	VoltageValue = SimulatedVoltageValue[loop];
 	ReadAndSendBatteryParameters();
 }
 }
