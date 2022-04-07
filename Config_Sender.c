@@ -4,6 +4,9 @@
 
 const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS] =
 {
+    // Here, based on the interface required functions can be mapped :
+    // For e.g. If the temperature/voltage needs to be read from a file, then that function needs to be defined and mapped here.
+    // Similarly, if there is a different format expected to be printed, other than JSON, that function needs to be defined and mapped here.
     {&ReadTemperatureFromSensor, &ProcessTemperatureValue, &PrintInJSONFormat},
     {&ReadVoltage, &ProcessVoltage, &PrintInJSONFormat}
 };
