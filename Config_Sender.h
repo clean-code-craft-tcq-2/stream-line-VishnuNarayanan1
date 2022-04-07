@@ -1,5 +1,6 @@
 #define MAX_BATTERY_PARAMETERS 2
 #define INVALID_TEMPERATURE 65535
+#define TEMPERATURE_OFFSET 0.75
 
 typedef struct {
    float (*SensorReadFunc_fp)(void);  
