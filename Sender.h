@@ -1,4 +1,4 @@
-void ReadAndSendBatteryParameters(void);
+int ReadAndSendBatteryParameters(void);
 float ReadTemperatureFromSensor(void);
 float ReadVoltage(void);
 float ProcessTemperatureValue (float sensorValue);
