@@ -36,7 +36,7 @@ TEST_CASE("Check battery parameters read , process and print cycle")
 
 TEST_CASE("Temperature within the range - Expected processed temperature is equal to sensed temperature + offset") 
 {
-	int processedTemperatureValue;
+	float processedTemperatureValue;
 	float sensorTemperatureValue = 25.5;
 	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
 	REQUIRE(processedTemperatureValue == (sensorTemperatureValue + TEMPERATURE_OFFSET ));
@@ -44,7 +44,7 @@ TEST_CASE("Temperature within the range - Expected processed temperature is equa
 
 TEST_CASE("Temperature out of the range - Expected processed temperature is equal to INVALID_TEMPERTURE") 
 {
-	int processedTemperatureValue;
+	float processedTemperatureValue;
 	float sensorTemperatureValue = -10.1;
 	processedTemperatureValue = ProcessTemperatureValue(sensorTemperatureValue);
 	REQUIRE(processedTemperatureValue == INVALID_TEMPERATURE );
