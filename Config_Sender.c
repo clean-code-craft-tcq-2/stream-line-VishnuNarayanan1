@@ -1,3 +1,5 @@
+#include "Config_Sender.h"
+
 const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS] =
 {
     {&ReadTemperatureFromSensor, &ProcessTemperatureValue, &PrintInJSONFormat},
