@@ -11,8 +11,8 @@
 #define MAX_VOLTAGE_LIMIT 12
 
 typedef struct {
-   float (*SensorReadFunc_fp)(void);  
-   float (*ProcessSensorOutputFunc_fp)(float);
+   float (*ReadSensorFunc_fp)(void);  
+   float (*ProcessSensorValue_fp)(float);
    void (*PrintInConsole_fp)(int,float);
 } tst_ReadBatteryParameters;
 
