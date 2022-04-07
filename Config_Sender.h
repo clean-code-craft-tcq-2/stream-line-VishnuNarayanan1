@@ -17,3 +17,5 @@ typedef struct {
 
 extern const tst_ReadBatteryParameters ReadBatteryParameters_st[MAX_BATTERY_PARAMETERS];
 extern char BatteryParametersJSONString[MAX_BATTERY_PARAMETERS][50];
+extern float TemperatureValue;
+extern float VoltageValue;
