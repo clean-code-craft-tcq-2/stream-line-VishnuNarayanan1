@@ -1,0 +1,16 @@
+Pre-conditions / Assumptions Made :
+1. Temperature and voltage are the 2 input parameters handled by the sender
+2. Input parameters are read from the sensor (It is simulated in this environment)
+3. If it has to be read from a file, then existing functions need not be disturbed, rather a new function to read from a file can be added and configured in the function pointer mapping
+4. Temperature has defined "Min" , "Max" range -> as in Config_Sender.h file
+5. Temperature has defined "Invalid" state (65535) -> as in Config_Sender.h file. This would help in identifying temperatures out of range instantly with a search
+6. Voltage has defined "Min", "Max" range -> as in Config_Sender.h file
+7. Voltage has defined "Invalid" state (0) -> as in Config_Sender.h file. This would help in identifying invalid voltage values instantly with a search
+
+Extensible options :
+1. If the number of parameters gets increased from '2', then MAX_BATTERY_PARAMETERS can be increased accordingly. Also add the function for the new parameter.
+   This would not have any interference with the existing functionality.
+2. If the existing parameters "Temperature" and "Voltage" are no more required, then it can just be removed from the mapping in the configuration and reducing the MAX_BATTERY_PARAMETERS count.
+3. If instead of reading from sensor, if the values needs to be read from file, then file accessing functions can be added and mapped in the configuration.
+   This would not impact the existing functionalities
+4. If instead of JSON, other format is required, just add one more function that prints in CSV format and map it to the configuration
