@@ -4,15 +4,15 @@
 
 void ReadAndSendBatteryParameters(void)
 {
-  int loopIndex = 0;
-  float loadSensorOutput;
-  for(loopIndex = 0; loopIndex < MAX_BATTERY_PARAMETERS; loopIndex++)
+  int batteryParameterIndex = 0;
+  float sensorValue,processedSesnorValue;
+  for(batteryParameterIndex = 0; batteryParameterIndex < MAX_BATTERY_PARAMETERS; batteryParameterIndex++)
   {
-    if((ReadBatteryParameters_st + loopIndex)->SensorReadFunc_fp != NULL)
+    if((ReadBatteryParameters_st + batteryParameterIndex)->SensorReadFunc_fp != NULL)
     {
-       sensorValue = (ReadBatteryParameters_st + loopIndex)->SensorReadFunc_fp();
-       processedSensorValue = (ReadBatteryParameters_st + loopIndex)->ProcessSensorValue_fp(sensorValue);
-       (ReadBatteryParameters_st + loopIndex)->PrintInConsole_fp(loopIndex, processedSensorValue);     
+       sensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->SensorReadFunc_fp();
+       processedSensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->ProcessSensorValue_fp(sensorValue);
+       (ReadBatteryParameters_st + batteryParameterIndex)->PrintInConsole_fp(batteryParameterIndex, processedSensorValue);     
     }
   }
 }
