@@ -14,12 +14,32 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
-    - name: build
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
+    - name: build Sender
+      #run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
+      run: g++ -Wall -Wextra -fprofile-arcs Sender.c Config_Sender.c -o sender
       
-    - name: run
-      run: ./testchecker
-
+    - name: run Sender
+      #run: ./testchecker
+      run: ./sender
+      
+    - name: build Receiver
+      run: g++ -Wall -Wextra -fprofile-arcs receiver.c -o receiver
+      
+    - name: run Receiver
+      run: ./receiver
+      
+    - name: build testSender
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Sender.cpp Sender.c Config_Sender.c -o testcheckerSender
+      
+    - name: run testSender
+      run: ./testcheckerSender
+      
+    - name: build testReceiver
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Receiver.cpp receiver.c -o testcheckerReceiver
+      
+    - name: run testReceiver
+      run: ./testcheckerReceiver
+    
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
 
