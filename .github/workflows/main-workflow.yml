@@ -24,7 +24,7 @@ jobs:
       run: ./testSender
       
     - name: buildReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Receiver/test_Receiver.cpp ./Receiver/*.c
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker test_Receiver.cpp ./Receiver/*.c
       
     - name: runReceiver
       run: ./testchecker
