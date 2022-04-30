@@ -14,32 +14,21 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
-    - name: build Sender
-      #run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
-      run: g++ -Wall -Wextra -fprofile-arcs Sender.c Config_Sender.c -o sender
-      
-    - name: run Sender
-      #run: ./testchecker
-      run: ./sender
-      
-    - name: build Receiver
-      run: g++ -Wall -Wextra -fprofile-arcs receiver.c -o receiver
-      
-    - name: run Receiver
-      run: ./receiver
-      
-    - name: build testSender
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Sender.cpp Sender.c Config_Sender.c -o testcheckerSender
-      
-    - name: run testSender
-      run: ./testcheckerSender
-      
-    - name: build testReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Receiver.cpp receiver.c -o testcheckerReceiver
-      
-    - name: run testReceiver
-      run: ./testcheckerReceiver
     
+    - name: buildSender
+      #run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testSender test_Sender.cpp Sender.c Config_Sender.c
+      
+    - name: runSender
+      #run: ./testchecker
+      run: ./testSender
+      
+    - name: buildReceiver
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Receiver/test_Receiver.cpp ./Receiver/*.c
+      
+    - name: runReceiver
+      run: ./testchecker
+         
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
 
