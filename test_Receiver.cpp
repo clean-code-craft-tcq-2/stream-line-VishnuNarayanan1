@@ -30,7 +30,7 @@ TEST_CASE("Requirement ID:2: Case for evaluating Printing to console for State O
 	float OutputAveragearray[lengthOfInputData] = {};
 	PrintingData DataToPrint;
 	DataToPrint.UserRequestOperator = ToFindMinValue;
-	DataToPrint.IndexOfBatteryMessage = STATEOFCHARGE;
+	DataToPrint.IndexOfBatteryMessage = VOLTAGE;
 	DataToPrint.LengthOfAvgArray = lengthOfInputData;
   REQUIRE(FindMinandMaxValue(Voltage,DataToPrint.UserRequestOperator) == Success);
 	DataToPrint.UserRequestOperator = ToFindMaxValue;
