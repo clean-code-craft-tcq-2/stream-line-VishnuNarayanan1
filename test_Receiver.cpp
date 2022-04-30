@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 
 #include "test/catch.hpp"
-#include "receiver.h"
+#include "Receiver/receiver.h"
 
 /* Positive test case */
 TEST_CASE("Requirement ID:1: Case for Postive test case :- To read Data from console") 
