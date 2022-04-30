@@ -6,16 +6,21 @@ int ReadAndSendBatteryParameters(void)
 {
   int batteryParameterIndex = 0;
   int functionExecutionStatus = 0;
-  float sensorValue,processedSensorValue;
-  for(batteryParameterIndex = 0; batteryParameterIndex < MAX_BATTERY_PARAMETERS; batteryParameterIndex++)
+  int functionExecutionStatus1 = 0;
+  float sensorValue, sensorValue1,processedSensorValue, processedSensorValue1;
+  for(batteryParameterIndex = 0; batteryParameterIndex < MAX_BATTERY_PARAMETERS;)
   {
     functionExecutionStatus = 0;
     if((ReadBatteryParameters_st + batteryParameterIndex)->ReadSensorFunc_fp != NULL)
     {
        sensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->ReadSensorFunc_fp();
+	     sensorValue1 = (ReadBatteryParameters_st + (batteryParameterIndex+1))->ReadSensorFunc_fp();
        processedSensorValue = (ReadBatteryParameters_st + batteryParameterIndex)->ProcessSensorValue_fp(sensorValue);
-       functionExecutionStatus = (ReadBatteryParameters_st + batteryParameterIndex)->PrintInConsole_fp(batteryParameterIndex, processedSensorValue);     
+	     processedSensorValue1 = (ReadBatteryParameters_st + batteryParameterIndex+1)->ProcessSensorValue_fp(sensorValue1);
+       functionExecutionStatus = (ReadBatteryParameters_st + batteryParameterIndex)->PrintInConsole_fp(batteryParameterIndex, batteryParameterIndex+1, processedSensorValue, processedSensorValue1);
+	   
     }
+	batteryParameterIndex+=2;
   }
   return functionExecutionStatus;
 }
@@ -46,8 +51,8 @@ float ProcessVoltage (float voltageValue)
     return INVALID_VOLTAGE;
 }
 
-int PrintInJSONFormat(int batteryParameter, float processedSensorValue)
+int PrintInJSONFormat(int batteryTempParameter,int batteryvoltageParameter, float processedSensorValue, float processedSensorValue1)
 {
-   printf("%s %.1f\n", BatteryParametersJSONString[batteryParameter] , processedSensorValue);
+   printf("%s %.1f\t%s %.1f \n", BatteryParametersJSONString[batteryTempParameter], processedSensorValue,BatteryParametersJSONString[batteryvoltageParameter], processedSensorValue1);
    return 1;
 }
