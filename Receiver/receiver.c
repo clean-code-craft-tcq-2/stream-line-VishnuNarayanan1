@@ -89,11 +89,11 @@ ResultType ProcessReadData(char *InputData, float Temperature[], float Voltage[]
 	int ResultComparetemp,ResultCompareVoltage=0;
 	ResultType ProcessedDataSuccess= Failure;
 	const char * InputArray_Dontprocess[] = {
-											"{'temperature':",
-											"'soc':" };
-	   ResultComparetemp=strcmp(InputData, InputArray_Dontprocess[0]); 
-	   ResultCompareVoltage= strcmp(InputData, InputArray_Dontprocess[1]);
-	   if(( ResultComparetemp ==0) || (ResultCompareVoltage ==0))
+											"{'Temperature' : ",
+											"'Voltage' : " };
+	   ResultComparetemp = strcmp(InputData, InputArray_Dontprocess[0]); 
+	   ResultCompareVoltage = strcmp(InputData, InputArray_Dontprocess[1]);
+	   if(( ResultComparetemp == 0) || (ResultCompareVoltage == 0))
 	   {
 
 		  ProcessedDataSuccess=Success;
