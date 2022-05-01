@@ -8,7 +8,7 @@ TEST_CASE("Requirement ID:1: Case for Postive test case :- To read Data from con
 {
   float temperature_temp[1] = {29.0};
   float voltage_temp[1] = {2.6};
-  printf(" Temperature : %.2f , Voltage : %.2f", temperature_temp[0], voltage_temp[0]);
+  printf(" Temperature : %.2f  Voltage : %.2f", temperature_temp[0], voltage_temp[0]);
   REQUIRE(readfromConsole(Temperature, Voltage) == Success);
 }
 
