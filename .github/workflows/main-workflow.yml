@@ -26,8 +26,11 @@ jobs:
     - name: buildReceiver
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker test_Receiver.cpp ./Receiver/*.c
       
-    - name: runReceiver
-      run: ./testchecker
+    #- name: runReceiver
+    #  run: ./testchecker
+    
+    - name: Pipeline sender/receiver
+      run: ./testsender | ./testchecker
          
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
