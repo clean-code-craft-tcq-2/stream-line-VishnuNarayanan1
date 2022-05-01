@@ -63,7 +63,7 @@ ResultType readfromConsole(float Temperature[], float Voltage[])
 {
 	char InputData[1024];
 	ResultType ReadConsoleSuccess= Failure;
-   while (scanf("%s\n", &InputData) !=EOF) 
+   while (scanf("%s\n", InputData) != EOF) 
    {
 	  ReadConsoleSuccess= ProcessReadData(InputData, Temperature, Voltage);
    }
@@ -87,20 +87,17 @@ ResultType readfromConsole(float Temperature[], float Voltage[])
 ResultType ProcessReadData(char *InputData, float Temperature[], float Voltage[])
 {
 	int ResultComparetemp,ResultCompareVoltage=0;
-	ResultType ProcessedDataSuccess= Failure;
-	const char * InputArray_Dontprocess[] = {
-											"{'Temperature' : ",
-											"'Voltage' : " };
+	ResultType ProcessedDataSuccess = Failure;
+	const char * InputArray_Dontprocess[] = {"Temperature : ","Voltage : " };
 	   ResultComparetemp = strcmp(InputData, InputArray_Dontprocess[0]); 
 	   ResultCompareVoltage = strcmp(InputData, InputArray_Dontprocess[1]);
 	   if(( ResultComparetemp == 0) || (ResultCompareVoltage == 0))
 	   {
-
-		  ProcessedDataSuccess=Success;
+		  ProcessedDataSuccess = Success;
   	   }
 	   else
 	   {
-		 ProcessedDataSuccess=  ExtractBatteryData_FromInput(InputData, Temperature, Voltage);
+		 ProcessedDataSuccess =  ExtractBatteryData_FromInput(InputData, Temperature, Voltage);
 	   }
 	   return ProcessedDataSuccess;
 }  
@@ -130,7 +127,7 @@ ResultType ExtractBatteryData_FromInput(char *InputData, float Temperature[], fl
     InputStringlen = strlen(InputData);
     InputData[InputStringlen-1] = '\0';
 
-    if(paramindex % 2==0)
+    if(paramindex % 2 == 0)
     {
  	   Temperature[Temperature_index]= strtod(InputData,NULL);
 	   Temperature_index++;
@@ -144,10 +141,7 @@ ResultType ExtractBatteryData_FromInput(char *InputData, float Temperature[], fl
 	   BatteryDataReady=Success;
     }
     paramindex++;
-
-
-    return BatteryDataReady;
-		   
+    return BatteryDataReady;   
 }
 
 /**
