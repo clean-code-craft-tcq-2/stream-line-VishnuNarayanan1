@@ -63,7 +63,7 @@ ResultType readfromConsole(float Temperature[], float Voltage[])
 {
 	char InputData[1024];
 	ResultType ReadConsoleSuccess= Failure;
-   while (scanf("%s\n", InputData) !=EOF) 
+   while (scanf("%s\n", &InputData) !=EOF) 
    {
 	  ReadConsoleSuccess= ProcessReadData(InputData, Temperature, Voltage);
    }
