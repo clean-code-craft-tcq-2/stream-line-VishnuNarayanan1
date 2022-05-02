@@ -130,12 +130,14 @@ ResultType ExtractBatteryData_FromInput(char *InputData, float Temperature[], fl
     if(paramindex % 2 == 0)
     {
  	   Temperature[Temperature_index]= strtod(InputData,NULL);
+	    printf("Temperature[Temperature_index] = %f\n",Temperature[Temperature_index]);
 	   Temperature_index++;
 	   BatteryDataReady=Success;
     }
     else 
     {
 	   Voltage[Voltage_index]=strtod(InputData,NULL);
+	    printf("Voltage[Voltage_index] = %f\n",Voltage[Voltage_index]);
 	   Voltage_index++;
 	   lengthOfInputData++;
 	   BatteryDataReady=Success;
@@ -258,7 +260,7 @@ ResultType PrintToConsole( float PrintData[],PrintingData DataToPrint)
 	
 	 for(int Loopcount=0; Loopcount < DataToPrint.LengthOfAvgArray;Loopcount++)
 	 {
-        printf("The value of the average of %s is %f\n", BatteryMessage[DataToPrint.IndexOfBatteryMessage],PrintData[Loopcount]);
+        //printf("The value of the average of %s is %f\n", BatteryMessage[DataToPrint.IndexOfBatteryMessage],PrintData[Loopcount]);
 	 }
 	 PrintedToConsole = Success;
 	 return PrintedToConsole;
