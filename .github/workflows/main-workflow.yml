@@ -17,21 +17,34 @@ jobs:
     
     - name: buildSender
       #run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testSender test_Sender.cpp Sender.c Config_Sender.c
+      run: g++ -Wall -Wextra -fprofile-arcs Sender.c Config_Sender.c -o Sender
       
     - name: runSender
       #run: ./testchecker
-      run: ./testSender
+      run: ./Sender
       
     - name: buildReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker test_Receiver.cpp ./Receiver/*.c
+      run: g++ -Wall -Wextra -fprofile-arcs ./Receiver/*.c -o Receiver
       
-    #- name: runReceiver
+    - name: runReceiver
     #  run: ./testchecker
+      run: ./Receiver
     
-    - name: Pipeline sender/receiver
-      run: ./testSender | ./testchecker
+    #- name: Pipeline sender/receiver
+    # run: ./testSender | ./testchecker
          
+    - name: build testSender
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Sender.cpp Sender.c Config_Sender.c -o testcheckersender
+      
+    - name: run testSender
+      run: ./testcheckersender
+      
+    - name: build testReceiver
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Receiver.cpp Receiver.c main.c -o testcheckerreceiver
+      
+    - name: run testReceiver
+      run: ./testcheckerreceiver
+    
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
 
