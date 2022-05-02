@@ -22,17 +22,16 @@ void readfromConsole(float* temperatureReading, float* voltageReading, int lengt
   for(int i = 0; i < lengthOfInputData; i++)
   {
 	  scanf("%20s", ReadString);
-	  if(scanf("%50s", ReadString) == EOF) 
+	  if(scanf("%20s", ReadString) == EOF) 
 	  {
 		  break;
 	  }
 	  scanf("%f", &temperatureReading[i]);
-	  scanf("%20s", ReadString); 
-	  scanf("%20s", ReadString);
-	  scanf("%20s", ReadString); 
-	  scanf("%20s", ReadString); 
-	  scanf("%20s", ReadString); 
-	  scanf("%20s", ReadString);
+	  scanf("%20s", ReadString); //,
+	  scanf("%20s", ReadString); // 
+	  scanf("%20s", ReadString); // Voltage
+	  scanf("%20s", ReadString); // :
+	  scanf("%20s", ReadString); //
 	  scanf("%f", &voltageReading[i]);
 	  printf("%.3f \t %.3f\n",temperatureReading[i],voltageReading[i]);
   }
