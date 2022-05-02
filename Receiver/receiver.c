@@ -142,10 +142,3 @@ void FindMinandMaxValue(float* temperatureReading, float* voltageReading, int st
   printf("Minimum temperature: %f Maximum temperature: %f Minimum voltage: %f Maximum voltage: %f\n", minT, maxT, minV, maxV);
 }
 
-int main()
-{
-    float Current[50], Voltage[50] = {0};
-    readfromConsole(Current, Voltage, 50);  
-    FindMinandMaxValue(Current, Voltage, 50);
-    return 0;
-}
