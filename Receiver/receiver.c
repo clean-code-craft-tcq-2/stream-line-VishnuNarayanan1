@@ -125,19 +125,20 @@ ResultType ExtractBatteryData_FromInput(char *InputData, float Temperature[], fl
 	static int paramindex=0;
 	
     InputStringlen = strlen(InputData);
-    InputData[InputStringlen-1] = '\0';
+    //InputData[InputStringlen-1] = '\0';
+	InputData[InputStringlen] = '\0';
 
     if(paramindex % 2 == 0)
     {
  	   Temperature[Temperature_index]= strtod(InputData,NULL);
-	    printf("Temperature[Temperature_index] = %f\n",Temperature[Temperature_index]);
+	    printf("Temperature[%d] = %f, ",Temperature_index,Temperature[Temperature_index]);
 	   Temperature_index++;
 	   BatteryDataReady=Success;
     }
     else 
     {
 	   Voltage[Voltage_index]=strtod(InputData,NULL);
-	    printf("Voltage[Voltage_index] = %f\n",Voltage[Voltage_index]);
+	    printf("Voltage[%d] = %f\n",Voltage_index,Voltage[Voltage_index]);
 	   Voltage_index++;
 	   lengthOfInputData++;
 	   BatteryDataReady=Success;
