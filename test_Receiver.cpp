@@ -26,6 +26,8 @@ TEST_CASE("Test for finding maximum value")
 
 TEST_CASE("Test Case to find maximum and minimum values") 
 {
+	float temperature[50] = {0};
+	float voltage[50] = {0};
 	readfromConsole(temperature, voltage, 50);
 	FindMinandMaxValue(temperature, voltage, 50);
 }
