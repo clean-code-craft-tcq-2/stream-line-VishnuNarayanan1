@@ -24,14 +24,14 @@ jobs:
       run: ./testSender
       
     - name: buildReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o Receiver test_Receiver.cpp ./Receiver/*.c
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker test_Receiver.cpp ./Receiver/*.c
       
     #- name: runReceiver
     #  run: ./testchecker
     #  run: ./Receiver
     
     - name: Pipeline sender/receiver
-      run: ./testSender | ./Receiver
+      run: ./testSender | ./testchecker
          
    # - name: build testSender
     #  run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage test_Sender.cpp Sender.c Config_Sender.c -o testcheckersender
