@@ -1,6 +1,8 @@
 #ifndef RECEIVER_H
 #define RECEIVER_H
 
+#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
