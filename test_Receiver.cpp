@@ -8,8 +8,8 @@ TEST_CASE("Case for Postive test case :- To read Data from console")
 {
 	float temperature[1] = {0};
 	float voltage[1] = {0};
-	float temperature_ref[1] = {29.0};
-	float voltage_ref[1] = {2.6};
+	float temperature_ref[1] = {24.1};
+	float voltage_ref[1] = {2.5};
     	
 	printf(" Temperature: %.2f , Voltage: %.2f ", temperature_ref[0],  voltage_ref[0]);
   readfromConsole(temperature, voltage, 1);
