@@ -12,7 +12,7 @@ TEST_CASE("Case for Postive test case :- To read Data from console")
 	float current_ref[1] = {29.0};
 	float voltage_ref[1] = {2.6};
     	
-	receiveData(Current, Voltage, 50);  
+	readfromConsole(Current, Voltage, 50);  
     	FindMinandMaxValue(Current, Voltage, 50);
 	printf(" Current: %.2f , Voltage: %.2f ", current_ref[0],  voltage_ref[0]);
   readfromConsole(current, voltage, 1);
