@@ -16,7 +16,7 @@
  * \return  None
  ***************************************************************************************************
  */
-void readfromConsole(float* temperatureReading, float* voltageReading, int c)
+void readfromConsole(float* temperatureReading, float* voltageReading, int lengthOfInputData)
 {
   char ReadString[MAX_SIZE_TO_READ];
   for(int i = 0; i < lengthOfInputData; i++)
