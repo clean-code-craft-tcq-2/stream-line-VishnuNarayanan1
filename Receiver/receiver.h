@@ -2,6 +2,8 @@
 #define RECEIVER_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define MAX_SIZE_TO_READ 400
 
