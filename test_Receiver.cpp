@@ -4,36 +4,21 @@
 #include "Receiver/receiver.h"
 
 /* Positive test case */
-TEST_CASE("Requirement ID:1: Case for Postive test case :- To read Data from console") 
+TEST_CASE("Case for Postive test case :- To read Data from console") 
 {
-  REQUIRE(readfromConsole(Temperature, Voltage) == Success);
+	float current[1] = {0};
+	float voltage[1] = {0};
+	float current_ref[1] = {29.0};
+	float voltage_ref[1] = {2.6};
+	printf(" Current: %.2f , Voltage: %.2f ", current_ref[0],  voltage_ref[0]);
+  readfromConsole(current, voltage, 1);
+  REQUIRE(current[0] - current_ref[0] <= 0.001);
+  REQUIRE(voltage[0] - voltage_ref[0] <= 0.001);
 }
 
-/* Positive test case */
-TEST_CASE("Requirement ID:2 Case for evaluating Printing to console for Temperature, after finding:Requirement ID:2a:- Minimum,Maximum, Requirement ID:2b:- Moving Average of 5") 
+TEST_CASE("Test for finding maximum value") 
 {
-	float OutputAveragearray[lengthOfInputData] = {};
-	PrintingData DataToPrint;
-	DataToPrint.UserRequestOperator = ToFindMinValue;
-	DataToPrint.IndexOfBatteryMessage = TEMPERATURE;
-	DataToPrint.LengthOfAvgArray = lengthOfInputData;
-	REQUIRE(FindMinandMaxValue(Temperature,DataToPrint.UserRequestOperator) == Success);
-	DataToPrint.UserRequestOperator = ToFindMaxValue;
-	REQUIRE(FindMinandMaxValue(Temperature,DataToPrint.UserRequestOperator) == Success);
-  REQUIRE(FindMovingAverage(Temperature,DataToPrint.LengthOfAvgArray,OutputAveragearray) == Success);
-  REQUIRE(PrintToConsole(OutputAveragearray,DataToPrint) == Success);
-}
-
-/* Positive test case */
-TEST_CASE("Requirement ID:2: Case for evaluating Printing to console for State Of charge, after finding:Requirement ID:2a:- Minimum,Maximum, Requirement ID:2b:- Moving Average of 5")  
-{
-	float OutputAveragearray[lengthOfInputData] = {};
-	PrintingData DataToPrint;
-	DataToPrint.UserRequestOperator = ToFindMinValue;
-	DataToPrint.IndexOfBatteryMessage = VOLTAGE;
-	DataToPrint.LengthOfAvgArray = lengthOfInputData;
-  REQUIRE(FindMinandMaxValue(Voltage,DataToPrint.UserRequestOperator) == Success);
-	DataToPrint.UserRequestOperator = ToFindMaxValue;
-  REQUIRE(FindMovingAverage(Voltage,DataToPrint.LengthOfAvgArray,OutputAveragearray) == Success);
-  REQUIRE(PrintToConsole(OutputAveragearray,DataToPrint) == Success);
+  float current[5]= {1.2, 6.7, 9.0, 7.8, 5.6};
+  float max = FindMaxValue(current, 5);
+  REQUIRE(max == 9.0f);
 }
