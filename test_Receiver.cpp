@@ -23,3 +23,9 @@ TEST_CASE("Test for finding maximum value")
   float max = FindMaxValue(temperature, 5);
   REQUIRE(max == 9.0f);
 }
+
+TEST_CASE("Test Case to find maximum and minimum values") 
+{
+	readfromConsole(temperature, voltage, 50);
+	FindMinandMaxValue(temperature, voltage, 50);
+}
