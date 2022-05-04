@@ -38,3 +38,11 @@ TEST_CASE("Test Case to find maximum and minimum values")
 	printf("The average temperature is %.3f\n", avg_temp);
 	printf("The average voltage is %.3f\n", avg_volt);
 }
+
+TEST_CASE("Test Case to find the Simple Moving Average value of a set of data from the superset stream") 
+{
+	float temperature_sample[10] = {24.1,24.3,25,24.9,79,24,24.7,25,25.6,26.9};
+	int lengthOfInputData = sizeof(temperature_sample) / sizeof(temperature_sample[0]);
+	int numOfElements = 5;
+	FindSMAValue(temperature_sample, lengthOfInputData, numOfElements);
+}
