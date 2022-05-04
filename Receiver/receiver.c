@@ -24,6 +24,8 @@ void readfromConsole(float* temperatureReading, float* voltageReading, int lengt
 	  scanf("%20s", ReadString);
 	  if(scanf("%20s", ReadString) == EOF) 
 	  {
+		  /* The coverage for this line cannot be achieved since the input from sender is always taken as per 
+		  this project use case. Therefore the associated branch coverage is not reachable. */
 		  break;
 	  }
 	  scanf("%f", &temperatureReading[i]);
