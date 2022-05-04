@@ -13,7 +13,7 @@ void readfromConsole(float* currentReading, float* voltageReading, int lengthOfI
 float FindMaxValue(float* input, int streamSize);
 float FindMinValue(float* input, int streamSize);
 float FindAvgValue(float* input, int streamSize);
-void computeSMA(float *input, int winSize, float *movingAvg);
+void FindSMAValue(float input[], int lengthOfInputData, int numOfElements);
 void FindMinandMaxValue(float* temperatureReading, float* voltageReading, int streamSize);
 
 #endif /* RECEIVER_H */
