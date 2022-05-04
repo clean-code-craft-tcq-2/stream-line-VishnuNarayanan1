@@ -108,27 +108,35 @@ float FindAvgValue(float* input, int streamSize)
  ***************************************************************************************************
  * Function Name: computeSMA
  * 
- * Function Description: Extract the Simple moving average float value after segragating string data
+ * Function Description: Extract the Simple moving average value of previous "numOfElements" elements
  *
- * \param   float *input     : Pointer to array upon which average value has to be calcutated for
- * \param   int winSize      : Stream size         
- * \param   float *movingAvg : Pointer to moving average array 
+ * \param   float input[]              : Array upon which SMA value has to be calcutated for
+ * \param   int lengthOfInputData      : total stream size
+ * \param   int numOfElements          : number of elements to calculate moving average for 
  * \return  None
  ***************************************************************************************************
  */
-void computeSMA(float *input, int winSize, float *movingAvg)
+void FindSMAValue(float input[], int lengthOfInputData, int numOfElements)
 {
-     float sum = 0;
-     for (int i = 0; i < 50; i++) 
-     {
-         sum = sum + input[i];
-         if (i >= winSize){
-	     sum -= input[i-winSize];
-	 }
-	 if(i >= winSize - 1) {
-            movingAvg[i-winSize] = sum/winSize;
-	 }
-     }
+	int i;
+	float avg;
+	float sum = 0;
+	printf("SMA of the requested range of elements:\n");
+	/* Initial sum of the required number of elements */
+	for (i = 0; i < numOfElements; i++)
+	{
+		sum += input[i];
+        	printf("%.2f ",sum/numOfElements);
+	}
+ 
+    	// Compute Moving Average value from the index numOfElements considered
+    	for (i = numOfElements; i < lengthOfInputData; i++)
+	{
+		sum -= input[i - numOfElements];
+        	sum += input[i];
+        	avg = sum / numOfElements;
+		printf("%.2f ",avg);
+	}
 }
 	
 void FindMinandMaxValue(float* temperatureReading, float* voltageReading, int streamSize)
