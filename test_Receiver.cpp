@@ -35,6 +35,6 @@ TEST_CASE("Test Case to find maximum and minimum values")
 	float avg_volt = FindAvgValue(voltage, 50);
 	REQUIRE( abs(avg_temp - 16.74f) <= 0.001);
 	REQUIRE( abs(avg_volt - 7.27f) <= 0.001);
-	printf("The average temperature is %d\n", avg_temp);
-	printf("The average voltage is %d\n", avg_volt);
+	printf("The average temperature is %.3f\n", avg_temp);
+	printf("The average voltage is %.3f\n", avg_volt);
 }
