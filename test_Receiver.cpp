@@ -4,7 +4,7 @@
 #include "Receiver/receiver.h"
 
 /* Positive test case */
-TEST_CASE("Case for Postive test case 1 :- To read Data from console") 
+TEST_CASE("Case for Postive test case :- To read Data from console") 
 {
 	float temperature[1] = {0};
 	float voltage[1] = {0};
@@ -13,20 +13,6 @@ TEST_CASE("Case for Postive test case 1 :- To read Data from console")
     	printf("------ Data fetched by receiver from sender ------\n");
 	readfromConsole(temperature, voltage, 1);
 	printf("------ Receiver reference verification data ------\n");
-	printf(" Temperature: %.2f , Voltage: %.2f \n", temperature_ref[0],  voltage_ref[0]);
-  REQUIRE(temperature[0] - temperature_ref[0] <= 0.001);
-  REQUIRE(voltage[0] - voltage_ref[0] <= 0.001);
-}
-
-TEST_CASE("Case for Postive test case 2 :- To read Data from console") 
-{
-	float temperature[1] = {0};
-	float voltage[1] = {0};
-	float temperature_ref[7] = {25.5};
-	float voltage_ref[7] = {3.1};
-	printf("------ Data fetched by receiver from sender ------\n");
-	readfromConsole(temperature, voltage, 7);
-    	printf("------ Receiver reference verification data ------\n");
 	printf(" Temperature: %.2f , Voltage: %.2f \n", temperature_ref[0],  voltage_ref[0]);
   REQUIRE(temperature[0] - temperature_ref[0] <= 0.001);
   REQUIRE(voltage[0] - voltage_ref[0] <= 0.001);
